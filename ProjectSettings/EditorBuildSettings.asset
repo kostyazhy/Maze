@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Main menu.unity
+    guid: b8516d7b82314004c9f18b8d2a24acce
+  - enabled: 1
+    path: Assets/Scenes/MAZEPETYA.unity
+    guid: ab309a052154e0e4e8ecf61b59e2a2fb
   m_configObjects: {}

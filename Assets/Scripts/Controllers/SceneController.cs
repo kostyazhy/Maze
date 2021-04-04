@@ -9,11 +9,13 @@ public class SceneController : MonoBehaviour
 
     private GameObject _enemy;
 
+    public GameObject SpawnPoint;
+
     void Update()
     {
         if (_enemy == null) {
             _enemy = Instantiate(enemyPrefab) as GameObject; 
-            _enemy.transform.position = new Vector3(0, 1, 0);
+            _enemy.transform.position = SpawnPoint.transform.position;
             float angle = Random.Range(0, 360);
             _enemy.transform.Rotate(0, angle, 0);
         }

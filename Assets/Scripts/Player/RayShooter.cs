@@ -5,6 +5,8 @@ using UnityEngine;
 public class RayShooter : MonoBehaviour
 {
     private Camera _camera;
+    public InterfacePlayer interfacePlayer;
+
     void Start()
     {
         _camera = GetComponent<Camera>();
@@ -20,11 +22,13 @@ public class RayShooter : MonoBehaviour
             Ray ray = _camera.ScreenPointToRay(point); 
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit)) {
-                GameObject hitObject = hit.transform.gameObject; 
+                GameObject hitObject = hit.transform.gameObject;
                 ReactiveTarget target = hitObject.GetComponent<ReactiveTarget>();
                 if (target != null) {
+                    interfacePlayer.AddScore();
+                    //target.AddScore();
                     target.ReactToHit();
-                    Messenger.Broadcast(GameEvent.ENEMY_HIT);
+                    //Messenger.Broadcast(GameEvent.ENEMY_HIT);
                 } else {
                     StartCoroutine(SphereIndicator(hit.point));
                 }
